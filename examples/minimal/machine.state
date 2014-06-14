@@ -1,0 +1,22 @@
+machine = "{{ env.STATED_MACHINE_DOMAIN }}"
+start = ["etc_hosts", "etc_hosts_sample"]
+
+[[file]]
+name = "etc_hosts"
+next = ["hello_world", "hello_stated"]
+destination = "etc/hosts"
+source = "files/hosts"
+mode = 644
+
+[[exec]]
+name = "hello_world"
+command = "echo 'Hello, World!' > out/hello-world.txt"
+
+[[exec]]
+name = "hello_stated"
+command = "echo 'Hello, Stated!' > out/hello-stated.txt"
+
+[[external]]
+name = "etc_hosts_sample"
+plugin = "stated-plugin-sample"
+config = "etc_hosts_sample.state"

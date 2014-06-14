@@ -1,0 +1,4 @@
+destination = "etc/hosts-sample"
+template = "templates/hosts"
+mode = 644
+an_argument = "expected by the plugin"
