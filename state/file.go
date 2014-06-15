@@ -36,9 +36,13 @@ func (t *Arith) Divide(args *Args, quo *Quotient) error {
 	return nil
 }
 
+type File int
+
 func Listen() {
 	arith := new(Arith)
+	file := new(File)
 	rpc.Register(arith)
+	rpc.Register(file)
 	rpc.HandleHTTP()
 	if l, err := net.Listen("tcp", "127.0.0.1:12789"); err != nil {
 		log.Fatal("listen error:", err)

@@ -1,5 +1,7 @@
 machine = "{{ env.STATED_MACHINE_DOMAIN }}"
 start = ["etc_hosts", "etc_hosts_sample"]
+plugin_min_port = 11000
+plugin_max_port = 11010
 
 [[file]]
 name = "etc_hosts"
